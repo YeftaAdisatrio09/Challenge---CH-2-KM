@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Soal1</title>
+    </head>
+    <body>
+        <h1>Soal 1</h1>
+
+        <script>
+            function changeWord(selectedText, changeText, text) {
+                return text.replace(selectedText, changeText);
+            }
+
+            const kalimat1 = "Andini sangat mencintai kamu selamanya";
+            const kalimat2 = "Gunung bromo tak akan mampu menggambarkan besarnya cintaku padamu";
+
+            console.log(changeWord("mencintai", "membenci", kalimat1));
+            console.log(changeWord("bromo", "semeru", kalimat2));
+        </script>
+    </body>
+</html>

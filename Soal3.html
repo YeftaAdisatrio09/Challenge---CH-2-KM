@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Soal3</title>
+    </head>
+    <body>
+        <h1>Soal 3</h1>
+
+        <script>
+            function checkEmail(email) {
+                var regex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                var hasil;
+                try {
+                    if (email.match(regex)) {
+                        hasil = "valid";
+                    } else if (!email.match(regex)) {
+                        hasil = "invalid";
+                    } else {
+                        throw {
+                            name: "ERROR",
+                            message: "tidak valid",
+                        };
+                    }
+                } catch (err) {
+                    hasil = err.message;
+                }
+                return hasil;
+            }
+
+            console.log(checkEmail("apanata@binar.co.id")); //true
+            console.log(checkEmail("apanata@binar.com")); //true
+            console.log(checkEmail("apanata@binar")); //flse
+            console.log(checkEmail("apanata")); //false
+            console.log(checkTypeNumber(checkEmail(3322)));
+        </script>
+    </body>
+</html>

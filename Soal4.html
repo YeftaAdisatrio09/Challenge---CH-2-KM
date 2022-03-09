@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Soal4</title>
+    </head>
+    <body>
+        <h1>Soal 4</h1>
+
+        <script>
+            function isValidPassword(givenPassword) {
+                var upCase = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,}\w+/;
+                if (givenPassword.match(upCase)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            console.log(isValidPassword("Meong2021")); //true
+            console.log(isValidPassword("meong2021")); //false
+            console.log(isValidPassword("@eong")); //false
+            console.log(isValidPassword("Meong2")); //false
+        </script>
+    </body>
+</html>
