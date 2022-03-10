@@ -10,19 +10,31 @@
         <h1>Soal 2</h1>
 
         <script>
-            function checkTypeNumber(givenNumber) {
-                if (givenNumber % 2 == 0) {
-                    return "Genap";
-                } else {
-                    return "Ganjil";
+            const checkTypeNumber = (givenNumber) => {
+                if (givenNumber == null) {
+                    //return "salah";
+                    throw "Bro where is the parameter?";
+                } else if (typeof givenNumber != "number") {
+                    throw "Invalid data type";
                 }
-            }
 
-            console.log(checkTypeNumber(10));
-            console.log(checkTypeNumber(3));
-            console.log(checkTypeNumber("3"));
-            console.log(checkTypeNumber({}));
-            console.log(checkTypeNumber([]));
+                if (givenNumber % 2 == 0) {
+                    return "GENAP";
+                } else {
+                    return "GANJIL";
+                }
+            };
+
+            try {
+                console.log(checkTypeNumber(10));
+                console.log(checkTypeNumber(3));
+                console.log(checkTypeNumber("3"));
+                //console.log(checkTypeNumber({}));
+                //console.log(checkTypeNumber([]));
+                //console.log(checkTypeNumber());
+            } catch (error) {
+                console.log("Error : " + error);
+            }
         </script>
     </body>
 </html>
