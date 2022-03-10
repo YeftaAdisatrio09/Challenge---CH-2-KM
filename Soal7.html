@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Soal7</title>
+    </head>
+    <body>
+        <h1>Soal 7</h1>
+
+        <script>
+            const dataPenjualanPakAldi = [
+                {
+                    namaProduct: "Sepatu Futsal Nike Vapor Academy 8",
+                    hargaSatuan: 760000,
+                    kategori: "Sepatu Sport",
+                    totalTerjual: 90,
+                },
+                {
+                    namaProduct: "Sepatu Warrior Tristan Black Brown High",
+                    hargaSatuan: 960000,
+                    kategori: "Sepatu Sneaker",
+                    totalTerjual: 37,
+                },
+                {
+                    namaProduct: "Sepatu Warrior Tristan Maroon High ",
+                    kategori: "Sepatu Sneaker",
+                    hargaSatuan: 360000,
+                    totalTerjual: 90,
+                },
+                {
+                    namaProduct: "Sepatu Warrior Rainbow Tosca Corduroy",
+                    hargaSatuan: 120000,
+                    kategori: "Sepatu Sneaker",
+                    totalTerjual: 90,
+                },
+            ];
+
+            function hitungTotalPenjualan(dataPenjualan) {
+                // cek parameter
+                if (dataPenjualan == null) {
+                    //return "salah";
+                    throw "Parameter tidak boleh kosong";
+                } else if (typeof dataPenjualan != "object") {
+                    throw "Data Tidak valid, harus berupa array";
+                }
+
+                const hitung = dataPenjualan.reduce((res, key) => {
+                    return (key.totalTerjual += res);
+                }, 0);
+
+                return hitung;
+            }
+
+            try {
+                console.log(hitungTotalPenjualan(dataPenjualanPakAldi));
+            } catch (error) {
+                console.log("Error : " + error);
+            }
+        </script>
+    </body>
+</html>
