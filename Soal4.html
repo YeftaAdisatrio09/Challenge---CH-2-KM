@@ -11,18 +11,32 @@
 
         <script>
             function isValidPassword(givenPassword) {
-                var upCase = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,}\w+/;
-                if (givenPassword.match(upCase)) {
+                var reg = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]{8,}\w+/;
+
+                if (givenPassword == null) {
+                    //return "salah";
+                    throw "Parameter tidak boleh kosong";
+                } else if (typeof givenPassword === "number") {
+                    throw "parameter harus berisi string";
+                }
+
+                if (givenPassword.match(reg)) {
                     return true;
                 } else {
                     return false;
                 }
             }
 
-            console.log(isValidPassword("Meong2021")); //true
-            console.log(isValidPassword("meong2021")); //false
-            console.log(isValidPassword("@eong")); //false
-            console.log(isValidPassword("Meong2")); //false
+            try {
+                // console.log(isValidPassword("Meong2021")); //true
+                // console.log(isValidPassword("meong2021")); //false
+                // console.log(isValidPassword("@eong")); //false
+                // console.log(isValidPassword("Meong2")); //false
+                // console.log(isValidPassword(0));
+                console.log(isValidPassword());
+            } catch (error) {
+                console.log("Error : " + error);
+            }
         </script>
     </body>
 </html>
