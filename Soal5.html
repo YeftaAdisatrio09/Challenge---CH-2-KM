@@ -11,33 +11,58 @@
 
         <script>
             /*
-                1. split
-                2. cek length Array
-                
+                1. cek NaN data
+                    if data !NaN {end}
+                2. split data (menjadi array)
+                3. cek length Array
+                    if length > 3 {end}
+                4. if length < 3 {add between data}
+                5. concat object dan array
+                6. print object
+
+
             */
 
             function getSplitName(personName) {
-                var name = personName.split(" ");
-                //return name.length;
-                if (name.length > 3) {
-                    return false;
+                if (!isNaN(personName)) {
+                    throw "Paramater harus berupa string";
                 }
 
-                Object.assign;
+                var fullName = personName.split(" ");
+                var obj = {
+                    fistName: "",
+                    middleName: "",
+                    lastName: "",
+                };
+                // //return name.length;
+                if (fullName.length > 3) {
+                    throw "This function is only for 3 characters name";
+                }
 
-                // if (name.length == 2) {
-                //     fullName = "FirstName = " + name[0] + " MiddleName = " + null + " LastName = " + name[1];
-                // } else {
-                //     fullName = "FirstName = " + name[0] + " MiddleName = " + name[1] + " LastName = " + name[2];
-                // }
+                do {
+                    if (fullName.length == 3) {
+                        break;
+                    }
+                    fullName.splice(1, 0, null);
+                } while (fullName.length < 3);
 
-                return fullName;
+                obj.fistName = fullName[0];
+                obj.middleName = fullName[1];
+                obj.lastName = fullName[2];
+
+                // Object.assign;
+                return obj;
             }
 
-            console.log(getSplitName("Aldi Daniela Pranata")); //True
-            console.log(getSplitName("Dwi Kuncoro")); //True
-            console.log(getSplitName("Aurora")); //True
-            console.log(getSplitName("Aurora Aureliya Sukma Darma")); //Error
+            try {
+                // console.log(getSplitName("Aldi Daniela Pranata")); //True
+                // console.log(getSplitName("Dwi Kuncoro")); //True
+                // console.log(getSplitName("Aurora")); //True
+                // console.log(getSplitName("Aurora Aureliya Sukma Darma")); //Error
+                console.log(getSplitName(0));
+            } catch (error) {
+                console.log("Error : " + error);
+            }
         </script>
     </body>
 </html>
