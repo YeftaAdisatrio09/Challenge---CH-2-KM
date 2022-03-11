@@ -10,43 +10,33 @@
         <h1>Soal 6</h1>
 
         <script>
-            /*
-                1. cek NaN data
-                    if data !NaN {end}
-                2. split data (menjadi array)
-                3. cek length Array
-                    if length > 3 {end}
-                4. if length < 3 {add between data}
-                5. concat object dan array
-                6. print object
-
-
-            */
-
-            function getSplitName(personName) {
-                if (personName == null) {
+            function getAngkaTerbesarKedua(getNumbers) {
+                if (getNumbers == null) {
                     //return "salah";
                     throw "Parameter tidak boleh kosong";
-                } else if (typeof personName != "object") {
+                } else if (typeof getNumbers != "object") {
                     throw "Data Tidak valid, harus berupa array";
                 }
 
-                const test = [...new Set(personName)]; // 1. menghilangkan angka yang kembar
-                // return test;
-                test.sort(function (a, b) {
-                    // 2. menyortir angka terkecil ke terbesar
+                // 1. menghilangkan angka yang kembar
+                const fixNumber = [...new Set(getNumbers)];
+
+                // 2. menyortir angka terkecil ke terbesar
+                fixNumber.sort(function (a, b) {
                     return a - b;
                 });
 
-                test.pop(); // 3. menghapus index terakhir
+                // 3. menghapus index terakhir
+                fixNumber.pop();
 
-                return Math.max(...test); // 4. return angka tertinggi
+                // 4. return angka tertinggi
+                return Math.max(...fixNumber);
             }
 
             const dataAngka = [9, 4, 7, 7, 4, 3, 2, 2, 8];
             try {
-                //console.log(getSplitName(dataAngka)); //True
-                //console.log(getSplitName(0)); //Error
+                console.log(getSplitName(dataAngka)); //True
+                console.log(getSplitName(0)); //Error
                 console.log(getSplitName()); //Error
             } catch (error) {
                 console.log("Error : " + error);
